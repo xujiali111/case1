@@ -47,7 +47,7 @@ H{1} = images;
 %numIn  = 60;
 %[U S V]=svd(H{1},0);
 k=0.8;
-for i=1:1
+for i=1:2
     fprintf('µÚ%d´ÎÑ­»·\n',i)
         if i>=2
             H{i}=H{i-1};
