@@ -34,7 +34,7 @@ lambda = 1e-4; % Weight decay parameter
 % Change the filenames if you've saved the files under different names
 % On some platforms, the files might be saved as 
 % train-images.idx3-ubyte / train-labels.idx1-ubyte
-
+%i=2 0.9 0.9 91.84%->2 0.9 0.8 91.85%->1 0.9 0.8 92.02%
 images = loadMNISTImages('train-images.idx3-ubyte');
 labels = loadMNISTLabels('train-labels.idx1-ubyte');
 labels(labels==0) = 10; % Remap 0 to 10
@@ -47,12 +47,12 @@ H{1} = images;
 %numIn  = 60;
 %[U S V]=svd(H{1},0);
 k=0.8;
-for i=1:2
+for i=1:1
     fprintf('µÚ%d´ÎÑ­»·\n',i)
         if i>=2
             H{i}=H{i-1};
         end
-        [H{i},We{i},Wd{i}]=compute(H{i},0.95,0.9,1000,2000);
+        [H{i},We{i},Wd{i}]=compute(H{i},0.9,0.8,1000,2000);
        % Hni=H{i}'*inv(H{i}*H{i}'+k*eye(size(H{i}*H{i}')));
         %e{i}=det(Hni*H{i}-eye(size(Hni*H{i})))^2;
 end
